@@ -22,7 +22,7 @@ class Video extends React.Component {
                     </ul>
                 </nav>
                 <iframe
-                    src={`http://www.youtube.com/embed/${this.props.location.state.videoId}`}
+                    src={`https://www.youtube.com/embed/${this.props.location.state.videoId}`}
                     type='text/html'
                     width='640'
                     height='360'
