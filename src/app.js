@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux';
 import rootReducer from './redux/reducer/message';
 import {
-    BrowserRouter as Router,
-    Link
+    hashHistory,
+    BrowserRouter as Router
 } from 'react-router-dom';
 import RouterComponent from './router/RouterComponent';
 
@@ -16,20 +16,7 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <div className="App">
-                    <Router>
-                        {/* <nav>
-                            <ul>
-                                <li>
-                                    <Link to="/">Home</Link>
-                                </li>
-                                <li>
-                                    <Link to="/favorite">Favorite</Link>
-                                </li>
-                                <li>
-                                    <Link to="/video">video</Link>
-                                </li>
-                            </ul>
-                        </nav> */}
+                    <Router history={hashHistory}>
                         <RouterComponent />
                     </Router>
                 </div>
