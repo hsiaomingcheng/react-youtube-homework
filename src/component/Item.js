@@ -62,6 +62,7 @@ export default Item;
 const VideoContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 `;
 
 const VideoItem = styled.div`
@@ -77,6 +78,14 @@ const VideoItem = styled.div`
 
     img {
         display: block;
+        width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+        width: 50%;
+    }
+
+    @media (max-width: 768px) {
         width: 100%;
     }
 `;

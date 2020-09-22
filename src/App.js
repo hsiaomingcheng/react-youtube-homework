@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
 import {
-    BrowserRouter as Router
+    HashRouter as Router
 } from 'react-router-dom';
 import RouterComponent from './router/RouterComponent';
 
