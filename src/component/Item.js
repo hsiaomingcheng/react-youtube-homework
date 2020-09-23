@@ -6,6 +6,38 @@ class Item extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
+
+        this.handleAddFavorite = this.handleAddFavorite.bind(this);
+    }
+
+    handleAddFavorite(item) {
+        // 點擊加入我的最愛按鈕
+
+        const favoriteList = JSON.parse(localStorage.getItem('favoriteData'));
+        let list = [];
+
+        // 若localStorage無favoriteData資料 就直接加入
+        if (!favoriteList) {
+            list = [item];
+        } else {
+            let idExist = 0;
+
+            // 判斷item的id是否與favoriteData裡的每筆資料重複，藉由此判斷影片是否已加入我的最愛
+            favoriteList.forEach((e) => {
+                if (e.id === item.id) {
+                    idExist = -1;
+                    return;
+                }
+            });
+
+            if (idExist === -1) {
+                return;
+            }
+
+            list = favoriteList ? [...favoriteList, item] : [item];
+        }
+
+        localStorage.setItem('favoriteData', JSON.stringify(list));
     }
 
     render() {
