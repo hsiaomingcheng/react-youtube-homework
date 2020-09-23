@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Item from '../component/Item'
+import Item from '../component/Item';
+import NavLink from '../component/NavLink';
 
 class Favorite extends React.Component {
     constructor(props) {
@@ -23,14 +23,7 @@ class Favorite extends React.Component {
 
         return (
             <>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">首頁</Link>
-                        </li>
-                    </ul>
-                </nav>
-                <div>我的最愛</div>
+                <NavLink />
 
                 {favoriteList && <Item videoList={favoriteList} />}
             </>

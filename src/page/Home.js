@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Item from '../component/Item'
+import Item from '../component/Item';
+import NavLink from '../component/NavLink';
 
 class Home extends React.Component {
     constructor(props) {
@@ -98,21 +98,15 @@ class Home extends React.Component {
 
     render() {
         const { videoList, nextPageToken, prevPageToken } = this.state;
-        console.log('videoList', videoList);
+
         return (
             <>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/favorite">我的最愛</Link>
-                        </li>
-                    </ul>
-                </nav>
+                <NavLink />
 
-                <div style={{ display: 'flex' }}>
+                <ButtonContainer>
                     <PageButton onClick={() => this.handleExcute(prevPageToken)}>{'<'}</PageButton>
                     <PageButton onClick={() => this.handleExcute(nextPageToken)}>{'>'}</PageButton>
-                </div>
+                </ButtonContainer>
 
                 {videoList && <Item videoList={videoList} />}
             </>
@@ -122,13 +116,27 @@ class Home extends React.Component {
 
 export default Home;
 
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+`;
+
 const PageButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 1px #000;
+    margin: 0 10px;
+    border: solid 1px #FFF;
     width: 50px;
     height: 50px;
+    background-color: #FFF;
+    color: #181818;
     box-sizing: border-box;
     cursor: pointer;
+
+    &:hover {
+        background-color: #181818;
+        color: #FFF
+    }
 `;

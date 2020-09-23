@@ -4,15 +4,26 @@ import {
     HashRouter as Router
 } from 'react-router-dom';
 import RouterComponent from './router/RouterComponent';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+    body {
+        background-color: #181818;
+        color: #FFF;
+    }
+`;
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <Router>
-                    <RouterComponent />
-                </Router>
-            </div>
+            <>
+                <GlobalStyle />
+                <div className="App">
+                    <Router>
+                        <RouterComponent />
+                    </Router>
+                </div>
+            </>
         );
     }
 }

@@ -21,7 +21,11 @@ class Item extends React.Component {
                                     <Video
                                         to={{
                                             pathname: '/video',
-                                            state: { videoId: e.id }
+                                            state: {
+                                                videoId: e.id,
+                                                title: e.snippet.localized.title,
+                                                description: e.snippet.localized.description
+                                            }
                                         }}
                                     >
                                         {
@@ -36,7 +40,11 @@ class Item extends React.Component {
                                         <ContentLink
                                             to={{
                                                 pathname: '/video',
-                                                state: { videoId: e.id }
+                                                state: {
+                                                    videoId: e.id,
+                                                    title: e.snippet.localized.title,
+                                                    description: e.snippet.localized.description
+                                                }
                                             }}
                                         >
                                             <Title>{e.snippet.localized.title}</Title>
@@ -44,7 +52,7 @@ class Item extends React.Component {
                                         </ContentLink>
 
                                         <Plus onClick={() => this.handleAddFavorite(e)}>
-                                            <img src="https://www.iconfinder.com/data/icons/ios7-essence/22/add_plus-512.png" />
+                                            +
                                         </Plus>
                                     </Content>
                                 </VideoItem>
@@ -117,6 +125,7 @@ const Description = styled.p`
 const Content = styled.div`
     display: flex;
     justify-content: space-between;
+    color: #FFF;
 `;
 
 const ContentLink = styled(Link)`
@@ -128,9 +137,16 @@ const Plus = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 1px #000;
+    border: solid 1px #FFF;
     width: 50px;
     height: 50px;
+    background-color: #FFF;
+    color: #181818;
     box-sizing: border-box;
     cursor: pointer;
+
+    &:hover {
+        background-color: #181818;
+        color: #FFF
+    }
 `;
